@@ -1,0 +1,22 @@
+class Solution
+{
+private:
+    int countSetBits(int n){
+    int count = 0;
+    while (n) {
+        count += n & 1;
+        n >>= 1;
+    }
+    return count;
+}
+public:
+	int is_bleak(int n)
+	{
+	     for (int x = max(1, n - 32); x < n; x++) {
+            if (x + countSetBits(x) == n) {
+                return 0; // Not bleak
+            }
+        }
+        return 1; // Bleak
+    }
+};
